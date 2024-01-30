@@ -1,1 +1,1 @@
-# gouvernance-des-donn-es
+# gouvernance-des-donnees
