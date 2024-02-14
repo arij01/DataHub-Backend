@@ -7,6 +7,7 @@ import tn.esprit.pi.entities.Documentation;
 import tn.esprit.pi.repositories.DocumentationRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DocumentationService {
@@ -26,12 +27,16 @@ public class DocumentationService {
                 .orElseThrow(() -> new EntityNotFoundException("Documentation not found with id: " + id));
     }
 
-    public Documentation updateDocumentation(String id, Documentation documentation) {
-        Documentation existingDocumentation = getDocumentationById(id);
-        existingDocumentation.setText(documentation.getText());
-        return documentationRepository.save(existingDocumentation);
+    public void updateDocumentation(Documentation documentation) {
+        Optional<Documentation> existingDocumentation = documentationRepository.findById(documentation.getId());
+        if (existingDocumentation.isPresent()) {
+            Documentation doc = existingDocumentation.get();
+            doc.setText(documentation.getText());
+            documentationRepository.save(doc);
+        } else {
+            throw new EntityNotFoundException("Documentation not found with id: " + documentation.getId());
+        }
     }
-
     public void deleteDocumentation(String id) {
         documentationRepository.deleteById(id);
     }

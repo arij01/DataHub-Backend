@@ -1,4 +1,6 @@
 package tn.esprit.pi.entities;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,4 +20,7 @@ public class Column {
 
     // Reflexive relationship
     private String parentId;
+    @ManyToOne
+    @JoinColumn(name = "documentation_id")
+    private Documentation doc;
 }

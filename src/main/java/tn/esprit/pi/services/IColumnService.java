@@ -5,7 +5,9 @@ import tn.esprit.pi.entities.Column;
 import java.util.List;
 
 public interface IColumnService {
-    public List<Column> getAllColumns();
-    public Column saveComponent(Column c);
-    public void deleteColumn(String id);
+    List<Column> getAllColumns();
+    Column getColumnById(String id);
+    Column saveColumn(Column c);
+    void deleteColumn(String id);
+    void updateColumn(Column c);
 }

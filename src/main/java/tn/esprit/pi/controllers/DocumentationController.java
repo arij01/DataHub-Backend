@@ -29,9 +29,9 @@ public class DocumentationController {
         return documentationService.getDocumentationById(id);
     }
 
-    @PutMapping("/{id}")
-    public Documentation updateDocumentation(@PathVariable String id, @RequestBody Documentation documentation) {
-        return documentationService.updateDocumentation(id, documentation);
+    @PutMapping
+    public void updateDocumentation(@RequestBody Documentation documentation) {
+        documentationService.updateDocumentation(documentation);
     }
 
     @DeleteMapping("/{id}")
