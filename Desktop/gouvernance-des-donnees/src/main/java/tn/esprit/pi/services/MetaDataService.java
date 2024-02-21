@@ -18,6 +18,7 @@ public class MetaDataService {
 
     public void processFile(MultipartFile file) {
         try {
+
             // Logique pour détecter les métadonnées du fichier en fonction de son type (CSV, Excel, PDF)
             Map<String, String> metadata = MetaDataExtractor.extractMetadata(file.getInputStream(), getFileType(file.getOriginalFilename()));
             // Enregistrez les métadonnées dans MongoDB
