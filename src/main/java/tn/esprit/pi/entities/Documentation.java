@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -16,7 +17,9 @@ import java.util.List;
 public class Documentation {
     @Id
     private String id;
+    private String title;
+    private Date createdAt;
+    private Date lastUpdated;
     private String text;
-    @OneToMany(mappedBy = "doc")
-    private List<Column> columns;
+
 }

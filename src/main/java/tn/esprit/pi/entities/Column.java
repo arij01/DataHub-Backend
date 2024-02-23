@@ -1,9 +1,10 @@
 package tn.esprit.pi.entities;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -13,14 +14,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Column {
     @Id
     private String id;
-    private String column_name;
-    private String synonym;
-    private String data_type;
-    private Label label;
-
+    private String nom;
+    private String synonyme;
+    private String type;
     // Reflexive relationship
-    private String parentId;
-    @ManyToOne
-    @JoinColumn(name = "documentation_id")
-    private Documentation doc;
+    private String businessKey;
+    @Enumerated
+    private Label label;
+    @OneToOne
+    private Documentation documentation;
+
 }

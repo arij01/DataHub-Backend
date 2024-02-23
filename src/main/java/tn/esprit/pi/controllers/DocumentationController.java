@@ -24,17 +24,22 @@ public class DocumentationController {
         return documentationService.saveDocumentation(documentation);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("get/{id}")
     public Documentation getDocumentationById(@PathVariable String id) {
         return documentationService.getDocumentationById(id);
     }
 
-    @PutMapping
-    public void updateDocumentation(@RequestBody Documentation documentation) {
-        documentationService.updateDocumentation(documentation);
+//    @PutMapping("/update")
+//    public void updateDocumentation(@RequestBody Documentation documentation) {
+//        documentationService.updateDocumentation(documentation);
+//    }
+    @PutMapping("/update/{id}")
+    public void updateDocById(@PathVariable String id,@RequestBody Documentation documentation) {
+        documentationService.updateDocById(id,documentation);
     }
 
-    @DeleteMapping("/{id}")
+
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteDocumentation(@PathVariable String id) {
         documentationService.deleteDocumentation(id);
         return ResponseEntity.ok().build();
