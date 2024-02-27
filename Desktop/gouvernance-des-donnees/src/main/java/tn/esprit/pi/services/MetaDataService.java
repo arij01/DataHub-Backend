@@ -19,9 +19,9 @@ public class MetaDataService {
     public void processFile(MultipartFile file) {
         try {
 
-            // Logique pour détecter les métadonnées du fichier en fonction de son type (CSV, Excel, PDF)
+
             Map<String, String> metadata = MetaDataExtractor.extractMetadata(file.getInputStream(), getFileType(file.getOriginalFilename()));
-            // Enregistrez les métadonnées dans MongoDB
+
             FileMetaData fileMetadata = new FileMetaData();
             fileMetadata.setFileName(file.getOriginalFilename());
             fileMetadata.setFileType(getFileType(file.getOriginalFilename()));
@@ -40,7 +40,7 @@ public class MetaDataService {
 
 
 
-    // Méthode pour déterminer le type de fichier en fonction de l'extension
+
     private String getFileType(String fileName) {
         String extension = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
         switch (extension) {
@@ -51,6 +51,13 @@ public class MetaDataService {
                 return "Excel";
             case "pdf":
                 return "PDF";
+            case "jpg":
+            case "jpeg":
+            case "png":
+            case "gif":
+                return "Image";
+            case "mp4":
+                return "Video";
             default:
                 return "Unknown";
         }
