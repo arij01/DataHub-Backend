@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.pi.entities.Column;
+import tn.esprit.pi.entities.Label;
 import tn.esprit.pi.services.ColumnService;
 
 import java.util.List;
@@ -56,6 +57,10 @@ public class ColumnController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+    @GetMapping("/search/{label}")
+    public List<Column> searchColumnsByLabel(@PathVariable Label label) {
+        return columnService.findColumnsByLabel(label);
     }
 
 

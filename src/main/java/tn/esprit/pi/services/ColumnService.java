@@ -3,6 +3,7 @@ package tn.esprit.pi.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.pi.entities.Column;
+import tn.esprit.pi.entities.Label;
 import tn.esprit.pi.repositories.ColumnRepository;
 
 import java.util.List;
@@ -56,6 +57,9 @@ public class ColumnService {
                     return columnRepository.save(existingColumn);
                 })
                 .orElseThrow(() -> new RuntimeException("Column not found with id " + id));
+    }
+    public List<Column> findColumnsByLabel(Label label) {
+        return columnRepository.findByLabel(label);
     }
 
 
