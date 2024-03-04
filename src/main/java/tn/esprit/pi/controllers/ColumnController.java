@@ -62,6 +62,12 @@ public class ColumnController {
     public List<Column> searchColumnsByLabel(@PathVariable Label label) {
         return columnService.findColumnsByLabel(label);
     }
+    @GetMapping("/all")
+    public List<Column> getAllColumnsWithNames() {
+        List<Column> columns = columnService.getAllColumns();
+        columns.forEach(column -> column.setNom(column.getNom() != null ? column.getNom() : "(none)"));
+        return columns;
+    }
 
 
 
