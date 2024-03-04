@@ -17,10 +17,12 @@ public class Column {
     private String nom;
     private String synonyme;
     private String type;
-    // Reflexive relationship
-    private String businessKey;
     @Enumerated
     private Label label;
+    // Reflexive relationship
+    private String businessKey;
+    private String champResultant;
+
     @OneToOne
     private Documentation documentation;
 

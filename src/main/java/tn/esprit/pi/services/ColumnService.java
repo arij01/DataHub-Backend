@@ -53,6 +53,7 @@ public class ColumnService {
                     existingColumn.setType(column.getType());
                     existingColumn.setLabel(column.getLabel());
                     existingColumn.setBusinessKey(column.getBusinessKey());
+                    existingColumn.setChampResultant(column.getChampResultant());
                     existingColumn.setDocumentation(column.getDocumentation());
                     return columnRepository.save(existingColumn);
                 })

@@ -5,8 +5,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.pi.entities.Column;
+import tn.esprit.pi.entities.Documentation;
 import tn.esprit.pi.entities.Label;
+import tn.esprit.pi.repositories.DocumentationRepository;
 import tn.esprit.pi.services.ColumnService;
+import tn.esprit.pi.services.DocumentationService;
 
 import java.util.List;
 
@@ -15,6 +18,8 @@ import java.util.List;
 public class ColumnController {
     @Autowired
     private ColumnService columnService;
+//    private DocumentationService documentationService;
+//    private DocumentationRepository documentationRepository;
     @GetMapping
     public List<Column> getAllColumns() {
         return columnService.getAllColumns();
@@ -68,7 +73,10 @@ public class ColumnController {
         columns.forEach(column -> column.setNom(column.getNom() != null ? column.getNom() : "(none)"));
         return columns;
     }
-
+//    @GetMapping("/doc")
+//    public Documentation getDocumentationByTitle(@RequestParam("title") String title) {
+//        return documentationRepository.findByTitle(title);
+//    }
 
 
 }
