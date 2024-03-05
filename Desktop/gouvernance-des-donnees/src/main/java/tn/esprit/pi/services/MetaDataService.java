@@ -36,12 +36,7 @@ public class MetaDataService {
             throw new RuntimeException(e);
         }
     }
-
-
-
-
-
-    private String getFileType(String fileName) {
+    public String getFileType(String fileName) {
         String extension = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
         switch (extension) {
             case "csv":

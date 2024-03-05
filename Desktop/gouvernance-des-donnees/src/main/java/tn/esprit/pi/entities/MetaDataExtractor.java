@@ -26,8 +26,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
-
 public class MetaDataExtractor {
     public static Map<String, String> extractMetadata(InputStream fileInputStream, String fileType) throws IOException, CsvValidationException {
 
@@ -47,7 +45,7 @@ public class MetaDataExtractor {
     }
 
 
-      private static Map<String, String> extractCsvMetadata(InputStream fileInputStream) throws IOException, CsvValidationException {
+      public static Map<String, String> extractCsvMetadata(InputStream fileInputStream) throws IOException, CsvValidationException {
           Map<String, String> metadata = new HashMap<>();
           SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
           String currentDate = dateFormat.format(new Date());
@@ -71,7 +69,7 @@ public class MetaDataExtractor {
 
           return metadata;
       }
-    private static Map<String, String> extractExcelMetadata(InputStream fileInputStream) throws IOException {
+    public static Map<String, String> extractExcelMetadata(InputStream fileInputStream) throws IOException {
         Map<String, String> metadata = new HashMap<>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentDate = dateFormat.format(new Date());
@@ -130,9 +128,7 @@ public class MetaDataExtractor {
 
             metadata.put("Duration (seconds)", String.valueOf(movieHeaderBox.getDuration() / movieHeaderBox.getTimescale()));
 
-            // Add more video-related metadata fields as needed
 
-            // Example: Extract video tracks information
             List<TrackBox> trackBoxes = movieBox.getBoxes(TrackBox.class);
             for (int i = 0; i < trackBoxes.size(); i++) {
                 TrackBox trackBox = trackBoxes.get(i);
@@ -142,7 +138,6 @@ public class MetaDataExtractor {
 
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception according to your needs
         }
 
         return metadata;
@@ -159,17 +154,11 @@ public class MetaDataExtractor {
             metadata.put("subject", documentInformation.getSubject());
             metadata.put("keywords", documentInformation.getKeywords());
             metadata.put("creator", documentInformation.getCreator());
-            metadata.put("modifiedDate", documentInformation.getModificationDate().toString());
+            metadata.put("numberOfPages", String.valueOf(document.getNumberOfPages()));
         }
 
         return metadata;
     }
-
-
-
-
-
-
 
 
 
