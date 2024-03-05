@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <main id="main" class="main">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Edit</h5>
+        <form [formGroup]="editForm" (ngSubmit)="handelSubmitUpdate(editForm.value)">
+          <!-- ID Field (Read-only) -->
+          <div class="col-12">
+            <label for="inputTitle4" class="form-label">Title</label>
+            <input type="text" class="form-control" id="inputTitle4" formControlName="title" readonly>
+          </div>
+          <div class="form-group">
+            <label for="createdAt">Created At</label>
+            <mat-form-field appearance="fill">
+              <mat-datepicker-toggle [for]="createdAtPicker"></mat-datepicker-toggle>
+              <mat-datepicker #createdAtPicker></mat-datepicker>
+              <input matInput [matDatepicker]="createdAtPicker" [formControlName]="'createdAt'" id="createdAt" placeholder="Select created at date">
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <label for="lastUpdated">Lyast Updated</label>
+            <mat-form-field appearance="fill">
+              <mat-datepicker-toggle [for]="lastUpdatedPicker"></mat-datepicker-toggle>
+              <mat-datepicker #lastUpdatedPicker></mat-datepicker>
+              <input matInput [matDatepicker]="lastUpdatedPicker" [formControlName]="'lastUpdated'" id="lastUpdated" placeholder="Select last updated date">
+            </mat-form-field>
+          </div>
+          <!-- ... -->
+          <!-- Text Field with Validation Message -->
+          <div class="col-12">
+            <label for="inputNom4" class="form-label">Text</label>
+            <input type="text" class="form-control" id="inputText4" formControlName="text">
+            <div *ngIf="editForm.get('text')?.hasError('required') && editForm.get('text')?.touched" class="text-danger">
+              Text is required.
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

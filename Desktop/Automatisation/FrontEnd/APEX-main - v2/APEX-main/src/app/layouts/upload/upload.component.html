@@ -1,0 +1,34 @@
+<body style="font-family: 'Arial', sans-serif; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+    <main id="main" style="text-align: center; background-color: #1268ff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="margin-bottom: 20px;">FILE UPLOAD</h2>
+        <div class="card" style="width: 500px; padding: 20px; border: 1px solid #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <div class="card-body" style="display: flex; flex-direction: column; align-items: center;">
+                
+                    <p style="margin-bottom: 10px;">SELECT A FILE </p>
+                    <input type="file" id="fileInput" (change)="onFileSelected($event)" style="margin-top: 20px;" />
+                    <button (click)="uploadFiles()" style="margin-top: 20px; padding: 10px 20px; background-color: #000000; color: white; border: none; border-radius: 4px; cursor: pointer;">UPLOAD</button>
+                    <button (click)="processFiles()" title="This button is for Batch processing " style="margin-top: 20px; padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 4px; cursor: pointer;">PROCESS FILES</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        
+ function onFileSelected(event) {
+    const fileInput = event.target;
+    confirmFileSelection(fileInput);
+}
+
+
+function confirmFileSelection(fileInput) {
+  if (fileInput.files.length > 0) {
+      const fileName = fileInput.files[0].name;
+      const confirmation = confirm(`Selected file: ${fileName}. Do you want to proceed?`);
+
+      if (!confirmation) {
+          fileInput.value = '';
+      }
+  }
+}
+    </script>
+   
+</body>

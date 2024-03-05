@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <main id="main" class="main">
+  <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Edit</h5>
+    <form [formGroup]="editForm" (ngSubmit)="handelSubmitUpdate()">
+<!-- ID Field (Read-only) -->
+<div class="col-12">
+  <label for="inputId4" class="form-label">ID</label>
+  <input type="text" class="form-control" id="inputId4" formControlName="id" readonly>
+</div>
+
+<!-- Nom Field with Validation Message -->
+<div class="col-12">
+  <label for="inputNom4" class="form-label">Nom</label>
+  <input type="text" class="form-control" id="inputNom4" formControlName="nom">
+  <div *ngIf="editForm.get('nom')?.hasError('required') && editForm.get('nom')?.touched" class="text-danger">
+    Nom is required.
+  </div>
+</div>
+
+<!-- Synonyme Field with Validation Message -->
+<div class="col-12">
+  <label for="inputSynonyme4" class="form-label">Synonyme</label>
+  <input type="text" class="form-control" id="inputSynonyme4" formControlName="synonyme">
+  <div *ngIf="editForm.get('synonyme')?.hasError('required') && editForm.get('synonyme')?.touched" class="text-danger">
+    Synonyme is required.
+  </div>
+</div>
+
+<!-- Type Field with Validation Message -->
+<div class="col-12">
+  <label for="inputType4" class="form-label">Type</label>
+  <input type="text" class="form-control" id="inputType4" formControlName="type">
+  <div *ngIf="editForm.get('type')?.hasError('required') && editForm.get('type')?.touched" class="text-danger">
+    Type is required.
+  </div>
+</div>
+
+<!-- Label Field with Validation Message -->
+<div class="col-12">
+  <label for="inputLabel4" class="form-label">Label</label>
+  <select class="form-control" id="inputLabel4" formControlName="label">
+    <option value="nonpersonnel">Non personnel</option>
+    <option value="personnel">Personnel</option>
+    <option value="personnel_sensible">Personnel sensible</option>
+  </select>
+  <div *ngIf="editForm.get('label')?.hasError('required') && editForm.get('label')?.touched" class="text-danger">
+    Label is required.
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="text-center">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+
+    </form>
+    <button type="button" class="btn btn-link" (click)="delete()">Delete</button>
+    </div>
+  </div>
+  </main>
+
+</body>
+
