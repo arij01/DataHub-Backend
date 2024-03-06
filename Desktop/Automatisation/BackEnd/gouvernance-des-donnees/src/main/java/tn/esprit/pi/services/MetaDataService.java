@@ -9,17 +9,20 @@ import tn.esprit.pi.entities.FileMetaData;
 import tn.esprit.pi.entities.MetaDataExtractor;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class MetaDataService {
     @Autowired
     private MongoTemplate mongoTemplate;
-
+    public MultipartFile processedFile;
+    private final List<MultipartFile> processedFiles = new ArrayList<>();
     public void processFile(MultipartFile file) {
         try {
 
-
+            processedFiles.add(file);
             Map<String, String> metadata = MetaDataExtractor.extractMetadata(file.getInputStream(), getFileType(file.getOriginalFilename()));
 
             FileMetaData fileMetadata = new FileMetaData();
@@ -28,13 +31,16 @@ public class MetaDataService {
             fileMetadata.setMetadata(metadata);
 
             mongoTemplate.save(fileMetadata);
-
+            processedFile = file;
         } catch (IOException e) {
             e.printStackTrace();
 
         } catch (CsvValidationException e) {
             throw new RuntimeException(e);
         }
+    }
+    public List<MultipartFile> getProcessedFiles() {
+        return processedFiles;
     }
     public String getFileType(String fileName) {
         String extension = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
@@ -57,4 +63,6 @@ public class MetaDataService {
                 return "Unknown";
         }
     }
+
+  
 }

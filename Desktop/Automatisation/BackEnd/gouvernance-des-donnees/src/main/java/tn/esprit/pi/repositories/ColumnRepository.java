@@ -6,4 +6,5 @@ import tn.esprit.pi.entities.Column;
 
 @Repository
 public interface ColumnRepository extends MongoRepository<Column,String> {
+
 }
