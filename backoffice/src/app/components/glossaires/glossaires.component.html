@@ -1,0 +1,38 @@
+<a routerLink="/addGlossaire" class="btn  mb-3 float-right">
+  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-node-plus-fill" viewBox="0 0 16 16">
+    <path d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13m.5-7.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2a.5.5 0 0 1 1 0"/>
+  </svg> Add Glossaires
+</a>
+
+<div class="d-flex">
+  <div class="glossaires-container">
+    <h2>Glossaires Table</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Terme</th>
+          <th>Définition</th>
+          <th>Dataset Associé</th>
+          <th>Utilisation</th>
+          <th>Dataset</th>
+          <th>Actions</th> <!-- New column for actions -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let glossaire of glossaires">
+          <td>{{ glossaire.id }}</td>
+          <td>{{ glossaire.terme }}</td>
+          <td>{{ glossaire.definition }}</td>
+          <td>{{ glossaire.dataset.id }}</td>
+          <td>{{ glossaire.utilisation }}</td>
+          <td>{{ glossaire.dataset.nom }}</td>
+          <td> <!-- Actions column -->
+            <button class="btn btn-danger" (click)="deleteGlossaire(glossaire.id)">Delete</button>
+            <button class="btn btn-warning" (click)="updateGlossaire(glossaire.id)">Update</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

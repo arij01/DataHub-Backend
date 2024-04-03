@@ -1,0 +1,33 @@
+
+
+<div class="feedbacks-container">
+  <h2>Feedbacks Table</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Utilisateur</th>
+        <th>Type de Feedback</th>
+        <th>Description</th>
+        <th>Dataset Associé</th>
+        <th>Date</th>
+        <th>Statut</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let feedback of feedbacks">
+        <td>{{ feedback.id }}</td>
+        <td>{{ feedback.utilisateur }}</td>
+        <td>{{ feedback.typeFeedback }}</td>
+        <td>{{ feedback.description }}</td>
+        <td>{{ feedback.datasetAssocie }}</td>
+        <td>{{ feedback.date | date  }}</td>
+        <td>{{ feedback.statut }}</td>
+      
+
+        
+      </tr>
+    </tbody>
+  </table>
+</div>

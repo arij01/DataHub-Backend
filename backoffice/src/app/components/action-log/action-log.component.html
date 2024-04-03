@@ -1,0 +1,50 @@
+
+
+
+
+
+  <div class="flex">
+
+    <!-- <input type="text" [(ngModel)]="task" placeholder="enter the job name"></div> -->
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z"/>
+      <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/>
+      <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5zM2 7h1v1H2zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm1 .5H2v1h1z"/>
+    </svg>Action Logs Table</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Action</th>
+          <th>Entity Name</th>
+          <th>Entity ID</th>
+          <th>User ID</th>
+          <th>IP Address</th>
+          <th>HTTP Method</th>
+          <th>Request URI</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let actionLog of logs" >
+          <td>{{ actionLog.id }}</td>
+          <td>{{ actionLog.action }}</td>
+          <td>{{ actionLog.entityName }}</td>
+          <td>{{ actionLog.entityId }}</td>
+          <td>{{ actionLog.userid }}</td>
+          <td>{{ actionLog.ipAddress }}</td>
+          <td>{{ actionLog.httpMethod }}</td>
+          <td>{{ actionLog.requestUri }}</td>
+          <td>{{ actionLog.timestamp | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+  </div>
+
+  <div>
+    <svg id="data-flow-diagram" width="800" height="200"></svg>
+  </div>
+

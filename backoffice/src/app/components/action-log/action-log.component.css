@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* Styles pour le contenu du composant ActionLog */
+.flex {
+    margin-top: 80px; /* Ajustez cette valeur selon la hauteur de votre header */
+    padding-bottom: 20px; /* Espace en bas pour éviter que le contenu ne soit coupé */
+    height: calc(100vh - 120px); /* Ajustez cette valeur selon la hauteur de votre header et de votre sidebar */
+    overflow-y: auto; /* Ajoutez une barre de défilement vertical si le contenu dépasse la hauteur définie */
+  }
+ 

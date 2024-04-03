@@ -1,0 +1,37 @@
+
+
+<div class="ex-form-1 pt-5 pb-5">
+  <div>
+    <div class="row">
+      <div class="col-xl-6 offset-xl-3">
+        <div class="text-box mt-5 mb-5">
+          <form #f="ngForm" (ngSubmit)="add(f)">
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="terme" name="terme" [(ngModel)]="glossaire.terme" required>
+              <label for="terme">Terme</label>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <textarea class="form-control" id="definition" name="definition" [(ngModel)]="glossaire.definition" required></textarea>
+              <label for="definition">Définition</label>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <label for="dataset">Dataset</label>
+              <select class="form-control" id="dataset" name="dataset" [(ngModel)]="glossaire.dataset" required>
+                <option *ngFor="let dataset of datasets" [ngValue]="dataset">{{ dataset.nom }}</option>
+              </select>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="utilisation" name="utilisation" [(ngModel)]="glossaire.utilisation" required>
+              <label for="utilisation">Utilisation</label>
+            </div>
+
+            <button type="submit" class="form-control-submit-button">Add Glossaire</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

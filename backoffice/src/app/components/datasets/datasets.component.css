@@ -1,0 +1,14 @@
+.custom-card {
+    max-width: 300px; /* Adjust as needed */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+  }
+
+  .custom-card:hover {
+    transform: translateY(-5px);
+  }
+  .arrowHead {
+    fill: black;
+  }
+

@@ -1,0 +1,54 @@
+<div class="ex-form-1 pt-5 pb-5">
+  <div>
+    <div class="row">
+      <div class="col-xl-6 offset-xl-3">
+        <div class="text-box mt-5 mb-5">
+          <form #f="ngForm" (ngSubmit)="add(f)" enctype="multipart/form-data">
+            <div>
+              <input type="file" #imageInput style="display: none;" (change)="onImageSelected($event)">
+              <button id="imageInput" type="button" (click)="imageInput.click()">Add Image</button>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="dataset.nom" required>
+              <label for="nom">Nom</label>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <textarea class="form-control" id="description" name="description" [(ngModel)]="dataset.description" required></textarea>
+              <label for="description">Description</label>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="proprietaire" name="proprietaire" [(ngModel)]="dataset.proprietaire" required>
+              <label for="proprietaire">Propriétaire</label>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="dateAjout" name="dateAjout" [(ngModel)]="dataset.dateAjout" disabled>
+              <label for="dateAjout">Date d'Ajout</label>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="tags" name="tags" [(ngModel)]="dataset.tags" required>
+              <label for="tags">Tags</label>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="glossaires" name="glossaires" [(ngModel)]="dataset.glossaires" required>
+              <label for="glossaires">Glossaires</label>
+            </div>
+
+            <div class="mb-4 form-field">
+              <div class="field-label">Fichier de données:</div>
+              <div> <input type="file" (change)="onCVSelected($event)">Add File </div>
+            </div>
+
+
+            <button type="submit" class="form-control-submit-button">Add Dataset</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

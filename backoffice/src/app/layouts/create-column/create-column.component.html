@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <main id="main" class="main">
+    <div class="card">
+    <div class="card-body">
+    <h5 class="card-title">Add Column</h5>
+    <form [formGroup]="createForm" (ngSubmit)="handelSubmit()">
+      <div class="col-12">
+        <label for="inputName4" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="inputName4" formControlName="nom">
+      </div>
+      <div class="col-12">
+        <label for="inputSynonyme4" class="form-label">Synonyme</label>
+        <input type="text" class="form-control" id="inputSynonyme4" formControlName="synonyme">
+      </div>
+      <div class="col-12">
+        <label for="inputType4" class="form-label">Type</label>
+        <input type="text" class="form-control" id="inputType4" formControlName="type">
+      </div>
+      <div class="col-12">
+        <label for="inputType4" class="form-label">business key</label>
+        <input type="text" class="form-control" id="inputType4" formControlName="type">
+      </div>
+      <div class="col-12">
+        <label for="inputLabel4" class="form-label">Label</label>
+        <select class="form-control" id="inputLabel4" formControlName="label">
+          <option value="nonpersonnel">confidentiel</option>
+          <option value="personnel">Personnel</option>
+          <option value="personnel_sensible">Personnel sensible</option>
+        </select>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    </div>
+    </div>
+  </main>
+
+</body>
+
