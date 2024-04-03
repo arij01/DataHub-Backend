@@ -1,0 +1,42 @@
+
+<a routerLink="/addDataSet" class="btn mb-3 float-right">
+  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-node-plus-fill" viewBox="0 0 16 16">
+    <path d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13m.5-7.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2a.5.5 0 0 1 1 0"/>
+  </svg> Add DataSet
+</a>
+
+<div class="datasets-container">
+  <h2>Datasets Cards</h2>
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-3" *ngFor="let dataset of datasets">
+      <div class="card custom-card">
+        <img class="file-image" [src]="'http://localhost:8082/demo/datasets/' + dataset.id + '/image'" (click)="openImage(dataset.imageName)">
+
+        <div class="card-body">
+          <h5 class="card-title">{{ dataset.nom }}</h5>
+          <p class="card-text">{{ dataset.description }}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: {{ dataset.id }}</li>
+            <li class="list-group-item">Propriétaire: {{ dataset.proprietaire }}</li>
+            <li class="list-group-item">Date d'Ajout: {{ dataset.dateAjout | date }}</li>
+            <div>
+              <a class="file-link" [href]="dataset.filePath" target="_blank" rel="noopener noreferrer"> {{ dataset.fileName }}</a>
+            </div>
+            <li class="list-group-item">Tags: {{ dataset.tags }}</li>
+            <li class="list-group-item">
+              Glossaires:
+              <ul>
+                <li *ngFor="let glossaire of dataset.glossaires">{{ glossaire }}</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="card-footer">
+            <button class="btn btn-primary" (click)="addFeedback(dataset.id, dataset.nom)">Add Feedback</button>
+            <button class="btn btn-danger" (click)="deleteDataset(dataset.id)">Delete</button>
+            <button class="btn btn-warning" (click)="updateDataset(dataset.id)">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

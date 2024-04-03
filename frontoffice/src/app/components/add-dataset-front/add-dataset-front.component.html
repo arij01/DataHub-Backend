@@ -1,0 +1,31 @@
+<div class="ex-form-container">
+  <div class="ex-form">
+    <form #f="ngForm" (ngSubmit)="add(f); formSubmitted = true;">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="dataset.nom" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" [(ngModel)]="dataset.description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="proprietaire">Propriétaire</label>
+        <input type="text" class="form-control" id="proprietaire" name="proprietaire" [(ngModel)]="dataset.proprietaire" required>
+      </div>
+      <div class="form-group">
+        <label for="dateAjout">Date d'Ajout</label>
+        <input type="text" class="form-control" id="dateAjout" name="dateAjout" [(ngModel)]="dataset.dateAjout" disabled>
+      </div>
+      <div class="form-group">
+        <label for="tags">Tags</label>
+        <input type="text" class="form-control" id="tags" name="tags" [(ngModel)]="dataset.tags" required>
+      </div>
+      <div class="form-group">
+        <label for="glossaires">Glossaires</label>
+        <input type="text" class="form-control" id="glossaires" name="glossaires" [(ngModel)]="dataset.glossaires" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Add Dataset</button>
+    </form>
+  </div>
+</div>

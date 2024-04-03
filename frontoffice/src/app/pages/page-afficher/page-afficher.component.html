@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <main id="main" class="main">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Table Des Champs</h5>
+        <button type="button" class="btn btn-link" (click)="add()">Ajouter un champ</button>
+        <button type="button" class="btn btn-link" (click)="modify()">Modifier la table</button>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Chemin de la donnée</th>
+              <th scope="col">Utilisateur qui a accédé</th>
+              <th scope="col">Timestamp d'accès</th>
+              <th scope="col">Action effectuée</th>
+              <!-- Ajoutez d'autres colonnes en fonction de vos besoins -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let entry of traceabilityEntries" [routerLink]="'/entries/edit/' + entry.id">
+              <th scope="row">{{entry.id}}</th>
+              <td>{{entry.dataPath}}</td>
+              <td>{{entry.userAccessed}}</td>
+              <td>{{entry.accessTimestamp | date:'medium'}}</td>
+              <td>{{entry.accessedAction}}</td>
+              <!-- Ajoutez d'autres colonnes en fonction de vos besoins -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

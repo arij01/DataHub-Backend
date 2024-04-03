@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <main id="main" class="main">
+          <!-- Card with titles, buttons, and links -->
+          <div class="card">
+            <div class="card-body">
+              <br>
+              <!-- <h6 class="card-title">Documentation</h6> -->
+             
+              <div *ngIf="doc">
+                
+                <!-- <p>ID: {{ doc.id }}</p> -->
+                <p>Titre: {{ doc.title }}</p>
+                <p>Date de création: {{ doc.createdAt| date }}</p>
+                <p>Dernier modification: {{ doc.lastUpdated| date }}</p>
+                <p [innerHtml]="doc.text | breakLines"></p>
+              </div>
+<!--               
+              <div *ngIf="!doc">
+                <p>Loading...</p>
+              </div> -->
+              <p class="card-text"><a  [routerLink]="'documentations/update/65d8dc460db71457d5619cfe'"class="btn btn-primary" >Modifier</a></p>
+              
+            </div>
+          </div>
+          <!-- End Card with titles, buttons, and links -->
+  </main>
+
+</body>
+
+

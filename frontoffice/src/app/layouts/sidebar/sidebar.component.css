@@ -1,0 +1,22 @@
+.navbar {
+    transition: top 0.3s;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link {
+    font-weight: 500;
+  }
+  
+  /* Add shadow when scrolled */
+  .navbar.sticky-top {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sticky-top {
+    top: 0;
+    z-index: 1000;
+  }
+  
