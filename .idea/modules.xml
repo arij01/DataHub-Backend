@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/data catalog.iml" filepath="$PROJECT_DIR$/.idea/data catalog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solution-service/main/main.iml" filepath="$PROJECT_DIR$/solution-service/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solution-service/test/test.iml" filepath="$PROJECT_DIR$/solution-service/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yacinpi/yacinpi.iml" filepath="$PROJECT_DIR$/yacinpi/yacinpi.iml" />
+    </modules>
+  </component>
+</project>

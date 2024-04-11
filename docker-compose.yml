@@ -1,0 +1,56 @@
+#
+#services:
+#  eureka-service:
+#    build: ./eureka-service
+#    container_name: eureka-service
+#    ports:
+#      - '8761:8761'
+#    expose:
+#      - '8761'
+#    healthcheck:
+#      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+#      interval: 10s
+#      retries: 4
+#  columns-service:
+#    build: ./columns-service
+#    container_name: columns-service
+#    ports:
+#      - '8081:8081'
+#    expose:
+#      - '8081'
+#    environment:
+#      - DISCOVERY_SERVICE_URL=http://eureka-service:8761/eureka
+#    healthcheck:
+#      test: [ "CMD", "curl", "-f", "http://localhost:8081/actuator/health" ]
+#      interval: 10s
+#      retries: 4
+#    depends_on:
+#      eureka-service:
+#        condition: service_healthy
+#  automation-service:
+#    build: ./automation-service
+#    container_name: automation-service
+#    ports:
+#      - '8083:8083'
+#    expose:
+#      - '8083'
+#    environment:
+#      - DISCOVERY_SERVICE_URL=http://eureka-service:8761/eureka
+#    healthcheck:
+#      test: [ "CMD", "curl", "-f", "http://localhost:8083/actuator/health" ]
+#      interval: 10s
+#      retries: 4
+#    depends_on:
+#      eureka-service:
+#        condition: service_healthy
+
+#
+#  rabbitmq:
+#    image: rabbitmq:3.9.11-management-alpine
+#    container_name: rabbitmq
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
+#    networks:
+#      - spring
+
