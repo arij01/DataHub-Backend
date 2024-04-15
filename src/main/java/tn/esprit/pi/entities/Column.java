@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Document(collection = "columns")
 public class Column {
     @Id

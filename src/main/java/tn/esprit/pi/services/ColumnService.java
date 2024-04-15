@@ -24,8 +24,13 @@ public class ColumnService {
         log.info("Retrieving all columns...");
         List<Column> columns = columnRepository.findAll();
         log.info("Retrieved {} columns.", columns.size());
+        for (Column c : columns) {
+            log.info("Details de column: {}", c);
+        }
+
         return columns;
     }
+
 
     public Column getColumnById(String id) {
         Optional<Column> column = columnRepository.findById(id);
