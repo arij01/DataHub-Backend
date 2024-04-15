@@ -1,6 +1,9 @@
 package tn.esprit.pi.services;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.pi.entities.Column;
 import tn.esprit.pi.entities.Label;
@@ -10,12 +13,18 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@EnableScheduling
+@Slf4j
 public class ColumnService {
     @Autowired
     private ColumnRepository columnRepository;
 
+    @Scheduled(cron = "0 * * * * *")
     public List<Column> getAllColumns() {
-        return columnRepository.findAll();
+        log.info("Retrieving all columns...");
+        List<Column> columns = columnRepository.findAll();
+        log.info("Retrieved {} columns.", columns.size());
+        return columns;
     }
 
     public Column getColumnById(String id) {
