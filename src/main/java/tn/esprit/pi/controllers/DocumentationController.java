@@ -13,7 +13,7 @@ import java.util.List;
 public class DocumentationController {
     @Autowired
     private DocumentationService documentationService;
-//.
+
     @GetMapping
     public List<Documentation> getAllDocumentations() {
         return documentationService.getAllDocumentations();
