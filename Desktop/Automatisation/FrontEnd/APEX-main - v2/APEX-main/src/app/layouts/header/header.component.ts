@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { NotificationService } from 'src/app/NotificationService/notification.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  
+  constructor(public notificationService: NotificationService) {}
 
 
   Toggle(){

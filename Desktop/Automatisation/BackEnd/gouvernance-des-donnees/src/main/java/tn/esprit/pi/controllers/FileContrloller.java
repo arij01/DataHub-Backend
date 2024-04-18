@@ -1,5 +1,6 @@
 package tn.esprit.pi.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import tn.esprit.pi.services.MetaDataService;
@@ -7,6 +8,20 @@ import tn.esprit.pi.services.MetaDataService;
 @RestController
 @RequestMapping("/Automation")
 public class FileContrloller {
+
+    @Autowired
+    public MetaDataService metadataService;
+    @Autowired
+    public SimpMessagingTemplate messagingTemplate;
+    @PostMapping("/upload")
+    public String handleFileUpload(@RequestParam("file") MultipartFile file) {
+        metadataService.processFile(file);
+        messagingTemplate.convertAndSend("/topic/notifications", "File uploaded successfully!");
+        return "File uploaded successfully!";
+    }
+
+
+}
 /*
     @Autowired
     public JobLauncher jobLauncher;
@@ -17,13 +32,11 @@ public class FileContrloller {
     @Autowired
     public BatchConfig batchConfig;
 */
-    @Autowired
-        public MetaDataService metadataService;
-    @PostMapping("/upload")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file) {
-        metadataService.processFile(file);
-        return "File uploaded successfully!";
-    }
+
+
+
+
+
 
 /*    @PostMapping("/uploadBatch")
      public ResponseEntity<String> handleFileUploadB(@RequestParam("file") MultipartFile file) {
@@ -46,4 +59,3 @@ public class FileContrloller {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing the file: " + e.getMessage());
         }
     }*/
-}

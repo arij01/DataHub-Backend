@@ -20,6 +20,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UploadComponent } from './layouts/upload/upload.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,8 +44,9 @@ import { UploadComponent } from './layouts/upload/upload.component';
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule, 
-    MatFormFieldModule
-
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
