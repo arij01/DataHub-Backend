@@ -12,6 +12,7 @@ export class NotificationService {
   constructor() { }
 
   updateMessage(message: string): void {
+    
     this.messageSubject.next(message);
   }
 }
