@@ -1,0 +1,21 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultzone: http://localhost:8761/eureka
+server:
+  port: 8083
+spring:
+  application:
+    name: automatisation-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: autodb
+  cloud:
+    config:
+      enabled: false
+application:
+  config:
+    champs-url: http://localhost:8081/api/columns
