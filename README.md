@@ -1,4 +1,4 @@
-# # Data Catalog SaaS Backend
+# Data Catalog SaaS Backend
 
 Welcome to the Data Catalog SaaS Backend repository! This project is the backbone of a cutting-edge Data Catalog Software as a Service (SaaS) application designed to revolutionize data governance for enterprise.
 
@@ -30,11 +30,12 @@ The backend is built on a microservices architecture using Spring Boot, ensuring
 
 ## Logical Architecture
 ![spring-boot-architecture2](https://github.com/user-attachments/assets/2d8b8e4a-2c34-4703-b014-3a655cec1cfd)
+![image](https://github.com/user-attachments/assets/f08fb98f-58d2-4143-8c88-9702d1355823)
 
 ## Technical Architecture
 ![image](https://github.com/user-attachments/assets/b83e4109-0eab-40e1-afe1-cdd3ff23d2e6)
 
-Acknowledgements
+## Acknowledgements
 This project is developed by:
 
 Arij M’hiri
