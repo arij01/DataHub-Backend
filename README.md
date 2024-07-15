@@ -39,11 +39,11 @@ The backend is built on a microservices architecture using Spring Boot, ensuring
 ## Acknowledgements
 This project is developed by:
 
--Arij M’hiri
--Yacine Tazarki
--Rahma Farhat
--Haithem Meddeb
--Med Ali Belhadj
+- Arij M’hiri
+- Yacine Tazarki
+- Rahma Farhat
+- Haithem Meddeb
+- Med Ali Belhadj
 Supervised by Rihab Idoudi and Thouraya Louati.
 
 
