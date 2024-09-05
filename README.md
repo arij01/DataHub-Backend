@@ -25,7 +25,6 @@ Data Quality Monitoring: Utilize machine learning models for data quality assess
 **Frontend**: Angular
 **Database**: MongoDB, MySQL
 **Containerization**: Docker
-**Machine Learning**: Various ML libraries for data analysis and quality monitoring
 ## Architecture
 The backend is built on a microservices architecture using Spring Boot, ensuring scalability and robustness. Angular powers the frontend, delivering a responsive and engaging user experience. Docker is used for containerization, facilitating consistent deployment across different environments.
 
